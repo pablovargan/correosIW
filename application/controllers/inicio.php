@@ -69,6 +69,15 @@ class Inicio extends CI_Controller {
 		}
 
 	}
+
+	public function logout()
+	{
+		if(isset($_SESSION["email"])){
+			session_destroy();
+		}
+
+		redirect("inicio/index");
+	}
 }
 
 /* End of file welcome.php */
