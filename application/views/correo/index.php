@@ -2,7 +2,7 @@
 $this->load->view('inc/cabecera.inc.php');
 ?>
 
-<h2>Bandeja de entrada.</h2
+<h2>Bandeja de entrada.</h2>
 <?php echo $listado; ?>
 <?php echo ("$cuantos correos recibidos."); ?>
 
