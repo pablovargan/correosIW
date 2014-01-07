@@ -2,21 +2,13 @@
 
 class Inicio extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+	function __construct() 
+	{
+		parent::__construct();
+		session_start();
+		$this->load->model('usuario_model', '', TRUE);
+
+	}
 
 	public function index()
 	{
@@ -24,6 +16,34 @@ class Inicio extends CI_Controller {
 		$data['tituloBody']="JudasMail";
 
 		$this->load->view('inicio/index', $data);
+	}
+
+	public function registro()
+	{
+		$data['tituloHead']="JudasMail";
+		$data['tituloBody']="Registrate en JudasMail";
+		$data['action']='inicio/nuevoUsuario';
+		$this->load->view('inicio/registro', $data);
+	}
+
+	public function nuevoUsuario()
+	{
+		$dato = array('email' => $this->input->post('email').'@judasmail.com',
+					'password' => $this->input->post('password'),
+					'nombre' => $this->input->post('nombre'),
+					'apellidos' => $this->input->post('apellidos'));
+
+		$usuario = $this->usuario_model->buscar($dato['email'])->row();
+		if(isset($usuario) && count($usuario) >0)
+		{
+			$_SESSION['error'] = "El nombre de usuario ya existe";
+			redirect('inicio/registro', 'refresh');
+		}
+		else
+		{
+			$this->usuario_model->registrar($dato);
+			redirect('inicio/index', 'refresh');
+		}
 	}
 }
 
