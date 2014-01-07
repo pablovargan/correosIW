@@ -11,7 +11,8 @@ class correo_model extends CI_Model {
 		return $this->db->get($this->tabla)->result();
 	}
 
-	function cuenta_emails(){
+	function cuenta_emails()
+	{
 		return $this->db->count_all($this->tabla);
 	}
 	

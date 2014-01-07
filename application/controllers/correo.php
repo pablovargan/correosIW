@@ -6,7 +6,7 @@ class Correo extends CI_Controller {
 	{
 		parent::__construct();
 		session_start();
-		//$this->load->model('correo_model', '', TRUE);
+		$this->load->model('correo_model', '', TRUE);
 	}
 
 	public function index()
@@ -15,7 +15,7 @@ class Correo extends CI_Controller {
 		$data['tituloBody']="Bandeja de Entrada";
 
 		$datos = $this->correo_model->bandejaEntrada();
-		$data['cuantos']= $this->datos_model->cuenta_emails();
+		$data['cuantos']= $this->correo_model->cuenta_emails();
 
 		$this->load->library('table');
 
@@ -31,7 +31,7 @@ class Correo extends CI_Controller {
 
 			$data['listado'] = $this->table->generate();
 		}
-		$this->load->view('datos/index', $data);
+		$this->load->view('correo/index', $data);
 	}
 
 }
