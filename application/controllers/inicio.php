@@ -7,7 +7,6 @@ class Inicio extends CI_Controller {
 		parent::__construct();
 		session_start();
 		$this->load->model('usuario_model', '', TRUE);
-
 	}
 
 	public function index()
@@ -19,6 +18,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('inicio/index', $data);
 	}
 
+	// Muestra la pagina para crear el registro
 	public function registro()
 	{
 		$data['tituloHead']="JudasMail";
@@ -42,8 +42,7 @@ class Inicio extends CI_Controller {
 		}
 		else
 		{
-			$this->usuario_model->registrar($dato);
-			redirect('inicio/index', 'refresh');
+			
 		}
 	}
 

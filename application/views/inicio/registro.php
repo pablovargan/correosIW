@@ -8,6 +8,7 @@ $this->load->view('inc/cabecera.inc.php');
 <?php
 echo form_open($action);
 ?>
+<!-- TODO: FUNCIONES JAVASCRIPT -->
 <!--Usuario-->
 <div class="campoForm">
 	<label for="email">Usuario</label>
@@ -44,7 +45,7 @@ echo form_open($action);
 	<input type="text" size="50" name="apellidos" required>
 	<span class="obligatorio">(*)</span>
 </div>
-
+<!--Validar-->
 <div>
 	<input type="submit" value="Registrarse">
 </div>
@@ -52,14 +53,11 @@ echo form_open($action);
 <br>
 <br>
 <?php form_close();
-
 echo anchor('inicio/index', 'Volver a inicio');
-
 ?>
 
-
-
 <hr>
+
 <?php
 $this->load->view('inc/pie.inc.php');
 ?>

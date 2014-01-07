@@ -18,6 +18,8 @@ $this->load->view('inc/cabecera.inc.php');
 </table>
 
 <hr>
+<?php echo $responder;  ?>
+<br>
 <?php echo $link_atras; ?> 
 
 
