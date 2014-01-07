@@ -26,12 +26,23 @@ class Correo extends CI_Controller {
 			$this->table->set_empty('&nbsp;');
 
 			foreach ($datos as $item) {
-				$this->table->add_row($item->id, $item->emisor, $item->asunto);
+				$this->table->add_row($item->id, $item->emisor, anchor('correo/detalle/'.$item->id, $item->asunto));
 			}
 
 			$data['listado'] = $this->table->generate();
 		}
 		$this->load->view('correo/index', $data);
+	}
+
+	public function detalle($id)
+	{
+		$data['tituloHead']="Detalle del email";
+		$data['tituloBody']="Detalle del email";
+		$data['link_atras']=anchor('correo/index', 'Volver al listado');
+
+		$data['tupla'] = $this->correo_model->buscar($id)->row();
+
+		$this->load->view('correo/detalle', $data);
 	}
 
 }

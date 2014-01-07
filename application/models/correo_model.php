@@ -18,6 +18,11 @@ class correo_model extends CI_Model {
 		return $this->db->get($this->tabla)->num_rows();
 	}
 	
+	function buscar($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->get($this->tabla);
+	}
 
 }
 
