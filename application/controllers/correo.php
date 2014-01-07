@@ -14,8 +14,8 @@ class Correo extends CI_Controller {
 		$data['tituloHead']="Correo en JudasMail";
 		$data['tituloBody']="Bandeja de Entrada";
 
-		$datos = $this->correo_model->bandejaEntrada();
-		$data['cuantos']= $this->correo_model->cuenta_emails();
+		$datos = $this->correo_model->bandejaEntrada($_SESSION["email"]);
+		$data['cuantos']= $this->correo_model->cuenta_emails($_SESSION["email"]);
 
 		$this->load->library('table');
 
