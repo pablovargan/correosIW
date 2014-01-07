@@ -14,6 +14,7 @@ class Inicio extends CI_Controller {
 	{
 		$data['tituloHead']="Bienvenido a JudasMail";
 		$data['tituloBody']="JudasMail";
+		$data['login']="inicio/login";
 
 		$this->load->view('inicio/index', $data);
 	}
@@ -44,6 +45,29 @@ class Inicio extends CI_Controller {
 			$this->usuario_model->registrar($dato);
 			redirect('inicio/index', 'refresh');
 		}
+	}
+
+	public function login()
+	{
+		$datos = array('email' => $this->input->post('email'),
+					   'password' => $this->input->post('password') );
+
+		$usuario = $this->usuario_model->buscar($datos['email'])->row();
+
+		if(isset($usuario) && count($usuario) >0)
+		{
+			if ($usuario->password == $datos['password']) {
+				$_SESSION['email'] = $usuario->email;
+				redirect('correo/index');
+			} else {
+				$_SESSION['error_login'] = "Los datos de acceso no son correctos";
+				redirect('inicio/index', 'refresh');
+			}
+		} else {
+			$_SESSION['error_login'] = "Usuario no encontrado";
+			redirect('inicio/index', 'refresh');
+		}
+
 	}
 }
 

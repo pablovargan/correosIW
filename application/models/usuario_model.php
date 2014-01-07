@@ -3,7 +3,7 @@
 class usuario_model extends CI_Model {
 
 	// Nombre de la tabla
-	private $tabla = 'usuario';
+	private $tabla = 'Usuario';
 
 	function buscar($email)
 	{

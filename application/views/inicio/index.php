@@ -6,12 +6,12 @@ $this->load->view('inc/cabecera.inc.php');
 <h2>Inicie sesion o registrese para comenzar.</h2>
 
 <?php
-echo form_open();
+echo form_open($login);
 ?>
 
 <div class="campoForm">
-	<label for="usuario">Usuario</label>
-	<input type="text" size="25" name="usuario" required>
+	<label for="email">Usuario</label>
+	<input type="text" size="25" name="email" required>
 	<span class="obligatorio">(*)</span>
 </div>
 
@@ -22,6 +22,14 @@ echo form_open();
 </div>
 <div>
 	<input type="submit" value="Iniciar Sesion">
+	<span>
+		<?php 
+			if(isset($_SESSION["error_login"]) && $_SESSION["error_login"] != ""){
+				echo $_SESSION["error_login"];
+				session_unset($_SESSION["error_login"]);
+			}
+		?>
+	</span>
 </div>
 
 <?php form_close();?>
