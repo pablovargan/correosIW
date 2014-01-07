@@ -10,6 +10,9 @@ $this->load->view('inc/cabecera.inc.php');
 <?php echo $listado; ?>
 <br>
 
+<?php echo  anchor('inicio/logout', 'Cerrar sesion');?>
+<br>
+
 <?php
 $this->load->view('inc/pie.inc.php');
 ?>

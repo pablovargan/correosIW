@@ -49,7 +49,15 @@ echo form_open($action);
 	<input type="submit" value="Registrarse">
 </div>
 
-<?php form_close();?>
+<br>
+<br>
+<?php form_close();
+
+echo anchor('inicio/index', 'Volver a inicio');
+
+?>
+
+
 
 <hr>
 <?php
