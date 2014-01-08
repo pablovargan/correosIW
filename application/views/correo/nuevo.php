@@ -30,9 +30,9 @@ echo form_open($action);
 </div>
 
 <?php form_close(); ?>
-
+<br>
+<?php echo anchor('correo/index', 'Volver'); ?>
 <hr>
-
 <?php
 $this->load->view('inc/pie.inc.php');
 ?>

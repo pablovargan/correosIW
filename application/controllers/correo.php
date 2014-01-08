@@ -15,7 +15,7 @@ class Correo extends CI_Controller {
 		{
 			$data['tituloHead']="Correo en JudasMail";
 			$data['tituloBody']="Correo de ".$_SESSION["email"];
-			// Libreria para pintar las tablas
+			// Libreria para generar las tablas
 			$this->load->library('table');
 
 			// Obtenemos del modelo los correos que tienen como desinatario nuestra sesion y la cantidad

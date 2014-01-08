@@ -13,11 +13,11 @@ $this->load->view('inc/cabecera.inc.php');
 <br>
 <?php echo $listadoSalida; ?>
 <br>
-
-
 <?php echo  anchor('correo/nuevo', 'Nuevo correo'); ?>
 <br>
-<?php echo  anchor('inicio/logout', 'Cerrar sesion');?>
+<?php echo  anchor('contactos/index', 'Contactos'); ?>
+<br>
+<?php echo  anchor('inicio/logout', 'Cerrar sesion'); ?>
 <br>
 
 <?php

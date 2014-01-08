@@ -42,7 +42,10 @@ class Inicio extends CI_Controller {
 		}
 		else
 		{
-			
+			$this->usuario_model->registrar($dato);
+			// Hago login
+			$_SESSION['email'] = $dato['email'];
+			redirect('correo/index', 'refresh');
 		}
 	}
 
