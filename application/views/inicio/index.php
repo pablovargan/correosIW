@@ -12,12 +12,12 @@ echo form_open($login);
 <div class="campoForm">
 	<label for="email">Usuario</label>
 	<input type="text" size="25" name="email" required>
-	<span class="obligatorio">(*)</span>
+	<span class="obligatorio"></span>
 </div>
 <div class="campoForm">
 	<label for="password">Password</label>
 	<input type="password" size="25" name="password" required>
-	<span class="obligatorio">(*)</span>
+	<span class="obligatorio"></span>
 </div>
 <div>
 	<input type="submit" value="Iniciar Sesion">

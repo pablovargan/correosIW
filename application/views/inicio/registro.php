@@ -9,6 +9,7 @@ $this->load->view('inc/cabecera.inc.php');
 echo form_open($action);
 ?>
 <!-- TODO: FUNCIONES JAVASCRIPT -->
+<h4>Rellene los siguientes campos para crear una cuenta de correo en JudasMail</h4>
 <!--Usuario-->
 <div class="campoForm">
 	<label for="email">Usuario</label>
