@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|system|images|css|js)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+RewriteRule ^(images|css|js)/(.*) /system/application/views/$1/$2 [L] 
